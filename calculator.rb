@@ -5,11 +5,6 @@ Build a calculator that
   -asks for the type of operation to perform
   -displays the result
 
-Expected Input: the program will use gets.chomp to ask the user for 2 numbers and for a mathematicaly operation to perform.
-
-Expected Output: The program will output the answers to the math problem the user wanted to answer. Afterwards, it will
-ask if they want to start a new math equation, meaning it will loop.
-
 Programming methodology:
 -loop
 -gets.chomp, puts
@@ -30,7 +25,7 @@ def valid_operator?(operation)
 end
 
 def operation_to_message(op)
-  case op
+  case op # rubocop:todo Style/HashLikeCase
   when "add" then "Adding"
   when "subtract" then "Subtracting"
   when "multiply" then "Multiplying"
@@ -53,6 +48,7 @@ def result_message(x, y, result, operator)
     puts "#{x} / #{y} = #{result}!"
   end
 end
+
 
 def calculator
   name = ''
@@ -132,7 +128,9 @@ divide
   prompt("Thanks for using the calulator #{name}!")
 end
 
+
 calculator
 
 # Think of how you can refactor using another method and calling it inside the calculator method.
+# rubocop:enable Layout/LineLength
 # Can use a method to save lines in the calculator method. more DRY code
