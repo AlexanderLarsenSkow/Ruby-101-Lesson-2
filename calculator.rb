@@ -20,6 +20,10 @@ def valid_number?(n)
   n.to_i.to_s == n
 end
 
+def valid_float?(n)
+    
+end
+
 p valid_number?(10)
 
 def valid_operator?(operation)
@@ -27,12 +31,14 @@ def valid_operator?(operation)
 end
 
 def operation_to_message(op)
-  case op # rubocop:todo Style/HashLikeCase
+  message = case op 
   when "add" then "Adding"
   when "subtract" then "Subtracting"
   when "multiply" then "Multiplying"
   when "divide" then "Dividing"
-  end
+  end 
+  p "Almost there..."
+  message
 end
 
 def result_message(x, y, result, operator)
