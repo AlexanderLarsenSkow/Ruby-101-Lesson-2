@@ -32,6 +32,16 @@ CALCULATE monthly payments with forumula.
 DISPLAY the result to the user.
 LOOP if they want to check again or input a new loan.
 
-Problems to Solve: Using a standard industry APR of 7.10% doesn't pass current validation checks because of 
-the 0. 
-UPDATE REQUIRED.
+Problems to Solve: 
+
+
+-Using a standard industry APR of 7.10% doesn't pass current validation checks because of 
+	the 0.
+
+SOLVED
+-Using a float conversion method in the final monthly_payment variable assignment creates too many decimal places.
+	Using the integer conversion method removes all decimals. Figure out a way to keep two decimal places.
+
+SOLVED	
+-Negative numbers in user input doesn't create errors. Update the validation methods to account for this.	
+

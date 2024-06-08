@@ -1,7 +1,7 @@
 # Number Validation Methods
 
 def valid_integer?(integer)
-	integer.to_i.to_s == integer 
+	integer.to_i.to_s == integer && integer.to_i > 0
 end 
 
 def valid_float?(float) 
@@ -9,7 +9,7 @@ def valid_float?(float)
 end 
 
 def valid_number?(number) 
-	(valid_float?(number) || valid_integer?(number)) && number != '0'				
+	(valid_float?(number) || valid_integer?(number)) && number.to_i > 0				
 end 
 
 # Prompt Input Message  
@@ -46,7 +46,7 @@ def mortgage_calculator
 			loan_amount = gets.chomp 
 		
 			break if valid_number?(loan_amount)
-			prompt("Error: Please enter a valid number that is not 0.")
+			prompt("Error: Please enter a valid number that is greater than 0.")
 
 		end 
 		
@@ -60,7 +60,7 @@ def mortgage_calculator
 			annual_percentage_rate = gets.chomp
 			
 			break if valid_number?(annual_percentage_rate)
-			prompt("Error: Please enter a valid number that is not 0.")
+			prompt("Error: Please enter a valid number that is greater than 0.")
 		end 
  		
  		prompt("Your APR is #{annual_percentage_rate}%.")
@@ -87,7 +87,7 @@ def mortgage_calculator
 		if answer.start_with?('Y')
 			prompt("Okay! Calculating your monthly payment now...")
 			monthly_payment = loan_amount.to_f * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**(-months_duration)))
-			prompt("Got it! Your monthly payment is $#{monthly_payment.to_i}.")
+			prompt("Got it! Your monthly payment is $#{format('%.2f', monthly_payment)}.")
 			
 			prompt("Do you have another loan payment you want to check? Enter (Y/N)")
 			answer_2 = gets.chomp.upcase
