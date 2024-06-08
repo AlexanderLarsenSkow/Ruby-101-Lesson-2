@@ -17,8 +17,10 @@ def prompt(message)
 end
 
 def valid_number?(n)
-  n.to_i != 0
+  n.to_i.to_s == n
 end
+
+p valid_number?(10)
 
 def valid_operator?(operation)
   ['add', 'subtract', 'multiply', 'divide'].include?(operation)
@@ -67,7 +69,7 @@ def calculator
     number_one = ''
     loop do
       prompt("Choose your first number.")
-      number_one = gets.chomp.to_i
+      number_one = gets.chomp
 
       break if valid_number?(number_one)
       prompt("Input Error: please enter a valid integer greater or less than 0.")
@@ -76,7 +78,7 @@ def calculator
     number_two = ''
     loop do
       prompt("What about the second number?")
-      number_two = gets.chomp.to_i
+      number_two = gets.chomp
 
       break if valid_number?(number_two)
       prompt("Input Error: please enter a valid integer greater or less than 0.")
@@ -103,15 +105,15 @@ divide
     case operation
 
     when "add"
-      add_result = number_one + number_two
+      add_result = number_one.to_i + number_two.to_i
       result_message(number_one, number_two, add_result, 'add')
 
     when "subtract"
-      subtract_result = number_one - number_two
+      subtract_result = number_one.to_i - number_two.to_i
       result_message(number_one, number_two, subtract_result, 'subtract')
 
     when "multiply"
-      multiply_result = number_one * number_two
+      multiply_result = number_one.to_i * number_two.to_i
       result_message(number_one, number_two, multiply_result, 'multiply')
 
     when "divide"
