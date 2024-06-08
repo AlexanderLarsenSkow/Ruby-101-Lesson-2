@@ -1,0 +1,37 @@
+Understanding the Problem: We need to take several pieces of information from the user (loan amount, annual percentage rate,
+and loan duration in years. 
+
+From there, we need to calculate the monthly interest rate (APR / 12) and the loan duration in months (years / 12) 
+
+Expected Input: 
+
+User Data. User needs to input the loan amount, percentage rate per year, and the loan duration in years.
+
+Expected Output:
+
+Monthly payments required to pay off the loan in the time given.
+
+
+Psudo Code: 
+
+GET userdata for the loan amount.
+VALIDATE the input is an integer. LOOP error message if not a valid integer. Prewritten method 
+SET loan amount value to new variable.
+
+GET userdata for APR 
+VALIDATE the input is a valid float or integer. LOOP error message if not valid. Prewritten method
+CALCULATE MPR.  
+SET to new variable.
+
+GET userdata for loan duration.
+VALIDATE the input is a float or integer (not sure which now). LOOP error message if not valid. Prewritten method
+CALCULATE monthly duration. 
+SET equal to new variable.
+
+CALCULATE monthly payments with forumula.
+DISPLAY the result to the user.
+LOOP if they want to check again or input a new loan.
+
+Problems to Solve: Using a standard industry APR of 7.10% doesn't pass current validation checks because of 
+the 0. 
+UPDATE REQUIRED.
