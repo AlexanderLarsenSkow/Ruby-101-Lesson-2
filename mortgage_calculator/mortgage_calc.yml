@@ -1,0 +1,21 @@
+name: "Welcome to the Mortgage Loan Calculator! What is your name?"
+
+welcome: "Let's calculate your monthly mortgage payment."
+
+loan_amount: "Please enter the total amount for your loan."
+
+loan_error: "Error: Please enter a valid number that is greater than 0."
+
+apr: "Now please enter your Annual Percentage Rate (APR) on the mortgage."
+
+apr_error: "Error: Please enter a valid number that is greater than 0."
+
+loan_duration: "Almost there! Lastly, please enter how many years the loan will last."
+
+loan_duration_error: "Please enter a number with no decimal place that is greater than 0."
+
+calculating: "Okay! Calculating your monthly payment now..."
+
+another_loan?: "Do you have another loan payment you want to check? Enter (Y/N)"
+
+start_again: "Please start again and enter the correct information."
