@@ -24,10 +24,16 @@ end
 # Saying hello, retrieving user's name for later.
 
 def intro
+  name = ''
+  loop do
     prompt(MESSAGES['name'])
     name = gets.chomp.capitalize
-    prompt("Thanks for stopping by, #{name}. #{MESSAGES['welcome']}")
-    name
+    
+    break unless name.empty?
+    prompt(MESSAGES['name_error'])
+  end 
+  prompt("Thanks for stopping by, #{name}. #{MESSAGES['welcome']}")
+  name 
 end 
 
 # Getting the user's total amount on the loan.
