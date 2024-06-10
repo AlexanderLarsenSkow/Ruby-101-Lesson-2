@@ -24,7 +24,7 @@ def valid_number?(n)
 end
 
 def valid_float?(n)
-    n.to_s.to_f == n
+  n.to_s.to_f == n
 end
 
 def valid_operator?(operation)
@@ -32,12 +32,12 @@ def valid_operator?(operation)
 end
 
 def operation_to_message(op)
-  message = case op 
-  when "add" then "Adding"
-  when "subtract" then "Subtracting"
-  when "multiply" then "Multiplying"
-  when "divide" then "Dividing"
-  end 
+  message = case op
+            when "add" then "Adding"
+            when "subtract" then "Subtracting"
+            when "multiply" then "Multiplying"
+            when "divide" then "Dividing"
+            end
   p "Almost there..."
   message
 end
@@ -57,7 +57,6 @@ def result_message(x, y, result, operator)
     puts "#{x} / #{y} = #{result}!"
   end
 end
-
 
 def calculator
   name = ''
@@ -104,7 +103,6 @@ divide
       operation = gets.chomp.downcase
 
       break if valid_operator?(operation)
-      puts "What"
       prompt(MESSAGES['operation_error'])
     end
 
@@ -138,9 +136,7 @@ divide
   prompt("Thanks for using the calulator #{name}!")
 end
 
-
 calculator
 
 # Think of how you can refactor using another method and calling it inside the calculator method.
-# rubocop:enable Layout/LineLength
 # Can use a method to save lines in the calculator method. more DRY code
