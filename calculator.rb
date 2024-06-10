@@ -12,6 +12,9 @@ Programming methodology:
 
 =end
 
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
 def prompt(message)
   puts "=> #{message}"
 end
@@ -21,10 +24,8 @@ def valid_number?(n)
 end
 
 def valid_float?(n)
-    
+    n.to_s.to_f == n
 end
-
-p valid_number?(10)
 
 def valid_operator?(operation)
   ['add', 'subtract', 'multiply', 'divide'].include?(operation)
@@ -61,10 +62,10 @@ end
 def calculator
   name = ''
   loop do
-    prompt("Welcome to the calculator. Enter your name:")
+    prompt(MESSAGES['welcome'])
     name = gets.chomp.capitalize
     if name.empty?
-      prompt("Make sure to use a valid name.")
+      prompt(MESSAGES['valid_name'])
     else
       prompt("Hello, #{name}!")
       break
@@ -74,25 +75,25 @@ def calculator
   loop do
     number_one = ''
     loop do
-      prompt("Choose your first number.")
+      prompt(MESSAGES['first_number'])
       number_one = gets.chomp
 
       break if valid_number?(number_one)
-      prompt("Input Error: please enter a valid integer greater or less than 0.")
+      prompt(MESSAGES['number_error'])
     end
 
     number_two = ''
     loop do
-      prompt("What about the second number?")
+      prompt(MESSAGES['second_number'])
       number_two = gets.chomp
 
       break if valid_number?(number_two)
-      prompt("Input Error: please enter a valid integer greater or less than 0.")
+      prompt(MESSAGES['number_error'])
     end
 
     operation = ''
     loop do
-      prompt("What kind of operation would you like to do?")
+      prompt(MESSAGES['operation'])
       prompt(%(
 add
 subtract
@@ -103,7 +104,8 @@ divide
       operation = gets.chomp.downcase
 
       break if valid_operator?(operation)
-      prompt("Input Error: please enter add, subtract, multiply, or divide.")
+      puts "What"
+      prompt(MESSAGES['operation_error'])
     end
 
     prompt("#{operation_to_message(operation)} the two numbers...")
@@ -128,7 +130,7 @@ divide
 
     end
 
-    prompt("Would you like to try again? (Y / N)")
+    prompt(MESSAGES['try_again'])
     answer = gets.chomp.upcase
     break unless answer.start_with?('Y')
   end

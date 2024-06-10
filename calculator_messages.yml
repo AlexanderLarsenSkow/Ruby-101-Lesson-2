@@ -1,0 +1,9 @@
+
+welcome: "Welcome to Calculator. Enter your name:"
+valid_name: "Make sure to enter a valid name."
+first_number: "Choose your first number."
+second_number: "What about the second number?"
+number_error: "Input Error: please enter a valid integer greater or less than 0."
+operation: "What kind of operation would you like to do?"
+operation_error: "Input Error: please enter add, subtract, multiply, or divide."
+try_again: "Would you like to try again? (Y / N)"
