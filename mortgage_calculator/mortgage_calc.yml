@@ -8,7 +8,7 @@ loan_amount: "Please enter the total amount for your loan."
 
 loan_error: "Error: Please enter a valid number that is greater than 0."
 
-apr: "Now please enter your Annual Percentage Rate (APR) on the mortgage."
+apr: "Now please enter your Annual Percentage Rate (APR) on the mortgage. For example, enter 5.5 for 5.5%."
 
 apr_error: "Error: Please enter a valid number that is greater than 0."
 
