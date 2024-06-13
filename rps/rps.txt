@@ -1,0 +1,36 @@
+User makes a choice 
+Computer makes a choice 
+The game displays the winner 
+
+Rules: 
+Rock beats scissors 
+Paper beats rock 
+Scissors beats paper 
+
+Expected Input: 
+User_choice R, P, S 
+
+Expected Output: 
+Computer_choice, then displayed results. 
+
+Data_types: 
+no arrays/hashes needed. 
+
+Test Cases: 
+User: paper 
+Computer: rock 
+"You got a point!"
+
+Pseudo_Code: 
+START PROGRAM
+PROMPT user with information about the game 
+GET user's choice 
+CALCULATE computer choice with rand() 
+CALCULATE game logic with game method 
+DISPLAY results to user 
+INCREMENT points to computer and to user.
+LOOP / END if user is finished. 
+
+Creativity: 
+Rockbot_5000 
+Think about having multiple challengers for the user LOL
