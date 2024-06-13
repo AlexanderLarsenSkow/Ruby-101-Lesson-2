@@ -4,6 +4,18 @@ name: 'But first, worthy challenger, what is thy name?'
 
 username_error: "Give us a name, challenger, so we may sing the songs of your battle prowess or laugh at your defeat."
 
-username_1: "Welcome, worthy"
+username_1: "Welcome, to the arena,"
 
-username_2: "Time to test your valor."
+username_2: "where blood is shed and legends are forged."
+
+user_choice: "It's time to choose your weapon. Enter 1 for Rock, 2 for Paper, or 3 for scissors."
+
+user_choice_error: "The challenger tries to pick a fourth weapon for combat? Unacceptable! Choose 1 for Rock, 2 for Paper, or 3 for Scissors."
+
+chose_rock: "You have chosen Rock, a most desctructive instrument!" 
+
+chose_paper: "You have chosen Paper, most likely to give a paper cut!" 
+
+chose_scissors: "You have chosen Scissors, sharpest of all holy objects!"
+
+commence_battle: "And now, for glorious combat to commence."
