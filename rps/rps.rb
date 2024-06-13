@@ -35,10 +35,8 @@ def responses(user_choice)
 	case user_choice
 		when 1 then prompt(MESSAGES['chose_rock'])
 		when 2 then prompt(MESSAGES['chose_paper'])
-		else 
-			prompt(MESSAGES['chose_scissors'])
+		when 3 then prompt(MESSAGES['chose_scissors'])
 	end 
-	prompt(MESSAGES['commence_battle'])
 end 
 
 def get_user_choice
@@ -54,11 +52,50 @@ def get_user_choice
 	user_choice
 end 
 
+# Getting the Computer's Choice
+
+def get_computer_choice
+	choices_array = [1, 2, 3]
+	computer_choice = choices_array.sample
+	
+	case computer_choice
+		when 1 then prompt(MESSAGES['comp_rock']) 
+		when 2 then prompt(MESSAGES['comp_paper'])
+		when 3 then prompt(MESSAGES['comp_ascissors'])
+	end 
+	computer_choice
+end 
+
+# Defining the Game's Logic 
+
+def game_logic(user_choice, computer_choice) 
+	if user_choice == computer_choice 
+		prompt(MESSAGES['tie'])
+	elsif user_choice == 1 && computer_choice == 2
+		prompt(MESSAGES['comp_won_paper'])
+	elsif user_choice == 1 && computer_choice == 3
+		prompt(MESSAGES['user_won_rock'])
+	elsif user_choice == 2 && computer_choice == 1
+		prompt(MESSAGES['user_won_paper']) 
+	elsif user_choice == 2 && computer_choice == 3
+		prompt(MESSAGES['comp_won_scissors']) 
+	elsif user_choice == 3 && computer_choice == 1
+		prompt(MESSAGES['comp_won_rock'])
+	else 
+		prompt(MESSAGES['user_won_scissors'])
+	end 
+end 
+
 # Main Game 
 
 def main_game
 	username = get_username
-	user_choice = get_user_choice 
+
+	loop do
+		user_choice = get_user_choice
+		computer_choice = get_computer_choice
+		game_logic(user_choice, computer_choice)
+	end 
 end 	
 
 main_game

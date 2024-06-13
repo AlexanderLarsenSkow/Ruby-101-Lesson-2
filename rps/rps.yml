@@ -12,10 +12,20 @@ user_choice: "It's time to choose your weapon. Enter 1 for Rock, 2 for Paper, or
 
 user_choice_error: "The challenger tries to pick a fourth weapon for combat? Unacceptable! Choose 1 for Rock, 2 for Paper, or 3 for Scissors."
 
-chose_rock: "You have chosen Rock, a most desctructive instrument!" 
+chose_rock: "You have chosen Rock"
+chose_paper: "You have chosen Paper."
+chose_scissors: "You have chosen Scissors"
 
-chose_paper: "You have chosen Paper, most likely to give a paper cut!" 
+comp_rock: "Rockbot_5000 chose Rock."
+comp_paper: "Rockbot_5000 chose Paper."
+comp_scissors: "Rockbot_5000 chose Scissors."
 
-chose_scissors: "You have chosen Scissors, sharpest of all holy objects!"
+tie: "Tied Point"
 
-commence_battle: "And now, for glorious combat to commence."
+
+comp_won_paper: "Paper beats Rock. That's a point for Rockbot."
+comp_won_rock: "Rock beats Scissors. That's a point for Rockbot."
+comp_won_scissors: "Scissors beats Paper. That's a point for Rockbot."
+user_won_paper: "Paper beats Rock. That's a point for you."
+user_won_rock: "Rock beats Scissors. That's a point for you."
+user_won_scissors: "Scissors beats Paper. That's a point for you."
