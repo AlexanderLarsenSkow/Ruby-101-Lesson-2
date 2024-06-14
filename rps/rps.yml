@@ -29,3 +29,6 @@ comp_won_scissors: "Scissors beats Paper. That's a point for Rockbot."
 user_won_paper: "Paper beats Rock. That's a point for you."
 user_won_rock: "Rock beats Scissors. That's a point for you."
 user_won_scissors: "Scissors beats Paper. That's a point for you."
+
+win: 'you won!'
+lose: 'you lost!'

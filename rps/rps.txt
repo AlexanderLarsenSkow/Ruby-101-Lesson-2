@@ -43,3 +43,6 @@ SOLVED
 Need to Give a Quit option to break out of the game
 
 Need to display win and loss prompts.
+SOLVED
+
+Need to extract some of Main Game to a helper method

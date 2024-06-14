@@ -66,16 +66,6 @@ def get_computer_choice
 	computer_choice
 end 
 
-# Giving points to the User or Computer
-
-def increment_for_comp(comp_points) 
-	comp_points += 1
-end 
-
-def increment_for_user(user_points)
-	user_points += 1 
-end 
-
 # Defining the Game's Logic with Helper Methods
 
 def tie_game(user_choice, computer_choice) 
@@ -133,27 +123,35 @@ def game_logic(user_choice, computer_choice)
 	end
 end 
 
+def display_win_loss(username, user_points, comp_points)
+	prompt("#{username}, #{MESSAGES['win']}") if user_points == 5 
+	prompt("#{username}, #{MESSAGES['lose']}") if comp_points == 5
+end
+
 # Main Game 
 
 def main_game
 	username = get_username
-	
 	user_points = 0
 	comp_points = 0
+	
 	loop do
-		user_choice = get_user_choice
-		computer_choice = get_computer_choice
-		result = game_logic(user_choice, computer_choice)
+	user_choice = get_user_choice
+	computer_choice = get_computer_choice
+	result = game_logic(user_choice, computer_choice)
 		
-		if result == true 
-			user_points += 1
-		elsif result == false 
-			comp_points += 1
-		end 
-		prompt("User: #{user_points} / Rockbot: #{comp_points}")
-		
-		break if user_points == 10 || break if comp_points == 10
+	case result 
+		when true then user_points += 1
+		when false then comp_points += 1
 	end 
+		
+		prompt(sprintf("You: %s / Rockbot: %s", user_points, comp_points))
+		
+		if user_points == 5 || comp_points == 5
+			break
+		end 
+	end 
+	display_win_loss(username, user_points, comp_points)
 end 	
 
 main_game
