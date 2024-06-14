@@ -46,3 +46,10 @@ Need to display win and loss prompts.
 SOLVED
 
 Need to extract some of Main Game to a helper method
+?
+
+Look at Refactoring the Win Condition Methods like in the Rubocop Video.
+
+Need to Ask User if they want to play again.
+Think about how to reintialize the points variables to 0 at the loop's restart.
+
