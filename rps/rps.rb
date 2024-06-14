@@ -66,35 +66,98 @@ def get_computer_choice
 	computer_choice
 end 
 
+# Giving points to the User or Computer
+
+def increment_for_comp(comp_points) 
+	comp_points += 1
+end 
+
+def increment_for_user(user_points)
+	user_points += 1 
+end 
+
 # Defining the Game's Logic 
 
+
+
+def tie_game(user_choice, computer_choice) 
+	if user_choice == computer_choice
+			prompt(MESSAGES['tie'])
+	end 
+end 
+
+def user_win(user_choice, computer_choice)
+	if user_choice == 1 && computer_choice == 3
+		prompt(MESSAGES['user_won_rock'])
+		
+	elsif user_choice == 2 && computer_choice == 1
+		prompt(MESSAGES['user_won_paper'])
+		
+	elsif user_choice == 3 && computer_choice == 2
+		prompt(MESSAGES['user_won_scissors'])	
+	end 
+end 
+
+def comp_win(user_choice, computer_choice) 
+	if user_choice == 1 && computer_choice == 2
+		prompt(MESSAGES['comp_won_paper'])
+		
+	elsif user_choice == 2 && computer_choice == 3
+		prompt(MESSAGES['comp_won_scissors'])
+
+	elsif user_choice == 3 && computer_choice == 1
+		prompt(MESSAGES['comp_won_rock'])
+	end 
+end 
+
 def game_logic(user_choice, computer_choice) 
+	user_points = 0
+	comp_points = 0
+	
+	tie_game(user_choice, computer_choice)
+	user_win(user_choice, computer_choice)
+	comp_win(user_choice, computer_choice)
+	
+end 
+=begin
+def game_logic(user_choice, computer_choice)
 	if user_choice == computer_choice 
 		prompt(MESSAGES['tie'])
+		
 	elsif user_choice == 1 && computer_choice == 2
 		prompt(MESSAGES['comp_won_paper'])
+
 	elsif user_choice == 1 && computer_choice == 3
 		prompt(MESSAGES['user_won_rock'])
+
 	elsif user_choice == 2 && computer_choice == 1
-		prompt(MESSAGES['user_won_paper']) 
+		prompt(MESSAGES['user_won_paper'])
+
 	elsif user_choice == 2 && computer_choice == 3
-		prompt(MESSAGES['comp_won_scissors']) 
+		prompt(MESSAGES['comp_won_scissors'])
+
 	elsif user_choice == 3 && computer_choice == 1
 		prompt(MESSAGES['comp_won_rock'])
 	else 
 		prompt(MESSAGES['user_won_scissors'])
 	end 
+	prompt("Score: user: #{user_points} Rockbot: #{comp_points}")
 end 
+=end 
 
 # Main Game 
 
 def main_game
 	username = get_username
-
+	
+	user_points = 0
+	comp_points = 0
 	loop do
 		user_choice = get_user_choice
 		computer_choice = get_computer_choice
-		game_logic(user_choice, computer_choice)
+		result = game_logic(user_choice, computer_choice)
+		
+	prompt("User: #{user_points} / Rockbot: #{comp_points}")
 	end 
 end 	
 
