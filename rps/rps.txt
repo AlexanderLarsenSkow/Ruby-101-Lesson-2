@@ -5,7 +5,16 @@ The game displays the winner
 Rules: 
 Rock beats scissors 
 Paper beats rock 
-Scissors beats paper 
+Scissors beats paper
+
+New Rules:
+Rock beats lizard
+Lizard beats Spock
+Spock Smashes Scissors
+Scissors beats lizard
+Lizard beats paper
+Paper beats Spock
+Spock beats rock
 
 Expected Input: 
 User_choice R, P, S 

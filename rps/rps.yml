@@ -8,17 +8,21 @@ username_1: "Welcome, to the arena,"
 
 username_2: "where blood is shed and legends are forged."
 
-user_choice: "It's time to choose your weapon. Enter 1 for Rock, 2 for Paper, or 3 for scissors."
+user_choice: "It's time to choose your weapon. Enter r for Rock, p for Paper, s for scissors, l for lizard, or sp for Spock."
 
-user_choice_error: "The challenger tries to pick a fourth weapon for combat? Unacceptable! Choose 1 for Rock, 2 for Paper, or 3 for Scissors."
+user_choice_error: "Error: Choose r for Rock, p for Paper, s for scissors, l for lizard, or sp for Spock."
 
-chose_rock: "You have chosen Rock"
+chose_rock: "You have chosen Rock."
 chose_paper: "You have chosen Paper."
-chose_scissors: "You have chosen Scissors"
+chose_scissors: "You have chosen Scissors."
+chose_lizard: "You have chosen Lizard."
+chose_spock: "You have chosen Spock."
 
-comp_rock: "Rockbot_5000 chose Rock."
-comp_paper: "Rockbot_5000 chose Paper."
-comp_scissors: "Rockbot_5000 chose Scissors."
+comp_rock: "Rockbot_5000 chose Rock!"
+comp_paper: "Rockbot_5000 chose Paper!"
+comp_scissors: "Rockbot_5000 chose Scissors!"
+comp_lizard: "Rockbot_5000 chose Lizard!"
+comp_spock: "Rockbot_5000 chose Spock!"
 
 tie: "Tied Point"
 

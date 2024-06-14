@@ -4,7 +4,7 @@ MESSAGES = YAML.load_file('rps.yml')
 # Validating user_input
 
 def input_validation(n)
-  n == 1 || n == 2 || n == 3
+  n == 'R' || n == 'P' || n == 'S' || n == 'L' || n == 'SP'
 end
 
 # Prompting the user
@@ -20,7 +20,7 @@ def get_username
   loop do
     prompt(MESSAGES['welcome'])
     prompt(MESSAGES['name'])
-    username = gets.chomp.capitalize
+    username = gets.chomp.capitalize 
 
     break unless username.empty?
     prompt(MESSAGES['username_error'])
@@ -33,19 +33,21 @@ end
 
 def display(user_choice)
   case user_choice
-  when 1 then prompt(MESSAGES['chose_rock'])
-  when 2 then prompt(MESSAGES['chose_paper'])
-  when 3 then prompt(MESSAGES['chose_scissors'])
+  when 'R' then prompt(MESSAGES['chose_rock'])
+  when 'P' then prompt(MESSAGES['chose_paper'])
+  when 'S' then prompt(MESSAGES['chose_scissors'])
+  when 'L' then prompt (MESSAGES['chose_lizard'])
+  when 'SP' then prompt (MESSAGES['chose_spock'])
   end
 end
 
 # Getting the User's Choice
 
 def get_user_choice
-  user_choice = 0
+  user_choice = ''
   loop do
     prompt(MESSAGES['user_choice'])
-    user_choice = gets.chomp.to_i
+    user_choice = gets.chomp.upcase
 
     break if input_validation(user_choice)
     prompt(MESSAGES['user_choice_error'])
@@ -57,17 +59,18 @@ end
 # Getting the Computer's Choice
 
 def get_computer_choice
-  choices_array = [1, 2, 3]
+  choices_array = ['R', 'P', 'S', 'L', 'SP']
   computer_choice = choices_array.sample
 
   case computer_choice
-  when 1 then prompt(MESSAGES['comp_rock'])
-  when 2 then prompt(MESSAGES['comp_paper'])
-  when 3 then prompt(MESSAGES['comp_scissors'])
+  when 'R' then prompt(MESSAGES['comp_rock'])
+  when 'P' then prompt(MESSAGES['comp_paper'])
+  when 'S' then prompt(MESSAGES['comp_scissors'])
+  when 'L' then prompt(MESSAGES['comp_lizard'])
+  when 'SP' then prompt(MESSAGES['comp_spock'])
   end
   computer_choice
 end
-
 # Defining the Game's Logic with Helper Methods
 
 def tie_game(user_choice, computer_choice)
