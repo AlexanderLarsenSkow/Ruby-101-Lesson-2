@@ -31,7 +31,7 @@ end
 
 # Displaying to the User's Choice
 
-def display(user_choice)
+def display_user(user_choice)
   case user_choice
   when 'R' then prompt(MESSAGES['chose_rock'])
   when 'P' then prompt(MESSAGES['chose_paper'])
@@ -52,8 +52,20 @@ def get_user_choice
     break if input_validation(user_choice)
     prompt(MESSAGES['user_choice_error'])
   end
-  display(user_choice)
+  display_user(user_choice)
   user_choice
+end
+
+# Displaying the Computer's Choice
+
+def display_comp(computer_choice)
+  case computer_choice
+  when 'R' then prompt(MESSAGES['comp_rock'])
+  when 'P' then prompt(MESSAGES['comp_paper'])
+  when 'S' then prompt(MESSAGES['comp_scissors'])
+  when 'L' then prompt(MESSAGES['comp_lizard'])
+  when 'SP' then prompt(MESSAGES['comp_spock'])
+  end
 end
 
 # Getting the Computer's Choice
@@ -62,15 +74,10 @@ def get_computer_choice
   choices_array = ['R', 'P', 'S', 'L', 'SP']
   computer_choice = choices_array.sample
 
-  case computer_choice
-  when 'R' then prompt(MESSAGES['comp_rock'])
-  when 'P' then prompt(MESSAGES['comp_paper'])
-  when 'S' then prompt(MESSAGES['comp_scissors'])
-  when 'L' then prompt(MESSAGES['comp_lizard'])
-  when 'SP' then prompt(MESSAGES['comp_spock'])
-  end
+  display_comp(computer_choice)
   computer_choice
 end
+
 # Defining the Game's Logic with Helper Methods
 
 def tie_game(user_choice, computer_choice)
@@ -80,30 +87,30 @@ def tie_game(user_choice, computer_choice)
 end
 
 def user_win(user_choice, computer_choice)
-  if user_choice == 1 && computer_choice == 3
+  if user_choice == 'R' && computer_choice == 'S'
     prompt(MESSAGES['user_won_rock'])
     true
 
-  elsif user_choice == 2 && computer_choice == 1
+  elsif user_choice == 'P' && computer_choice == 'R'
     prompt(MESSAGES['user_won_paper'])
     true
 
-  elsif user_choice == 3 && computer_choice == 2
+  elsif user_choice == 'S' && computer_choice == 'P'
     prompt(MESSAGES['user_won_scissors'])
     true
   end
 end
 
 def comp_win(user_choice, computer_choice)
-  if user_choice == 1 && computer_choice == 2
+  if user_choice == 'R' && computer_choice == 'P'
     prompt(MESSAGES['comp_won_paper'])
     true
 
-  elsif user_choice == 2 && computer_choice == 3
+  elsif user_choice == 'P' && computer_choice == 'S'
     prompt(MESSAGES['comp_won_scissors'])
     true
 
-  elsif user_choice == 3 && computer_choice == 1
+  elsif user_choice == 'S' && computer_choice == 'R'
     prompt(MESSAGES['comp_won_rock'])
     true
   end
