@@ -34,3 +34,12 @@ LOOP / END if user is finished.
 Creativity: 
 Rockbot_5000 
 Think about having multiple challengers for the user LOL
+
+Current Problems 
+
+Tied Game gives a point to Rockbot.
+SOLVED
+
+Need to Give a Quit option to break out of the game
+
+Need to display win and loss prompts.
