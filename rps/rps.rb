@@ -86,7 +86,7 @@ def tie_game(user_choice, computer_choice)
   end
 end
 
-def user_win(user_choice, computer_choice)
+def user_win1(user_choice, computer_choice)
   if user_choice == 'R' && computer_choice == 'S'
     prompt(MESSAGES['user_won_rock_S'])
     true
@@ -106,8 +106,11 @@ def user_win(user_choice, computer_choice)
    elsif user_choice == 'L' && computer_choice == 'SP'
     prompt(MESSAGES['user_won_lizard_SP'])
     true
-    
-   elsif user_choice == 'SP' && computer_choice == 'S'
+  end
+end 
+
+def user_win2(user_choice, computer_choice) 
+  if user_choice == 'SP' && computer_choice == 'S'
     prompt(MESSAGES['user_won_spock_S'])
     true  
     
@@ -125,12 +128,11 @@ def user_win(user_choice, computer_choice)
   
    elsif user_choice == 'SP' && computer_choice == 'R'
     prompt(MESSAGES['user_won_rock_R'])
-    true  
-    
-  end
-end
+    true
+  end 
+end 
 
-def comp_win(user_choice, computer_choice)
+def comp_win1(user_choice, computer_choice)
   if user_choice == 'R' && computer_choice == 'P'
     prompt(MESSAGES['comp_won_paper_R'])
     true
@@ -150,8 +152,11 @@ def comp_win(user_choice, computer_choice)
   elsif user_choice == 'SP' && computer_choice == 'L'
     prompt(MESSAGES['comp_won_lizard_SP'])
     true
-    
-  elsif user_choice == 'S' && computer_choice == 'Sp'
+  end
+end
+
+def comp_win2(user_choice, computer_choice)
+  if user_choice == 'S' && computer_choice == 'Sp'
     prompt(MESSAGES['comp_won_spock_S'])
     true
   
@@ -169,20 +174,22 @@ def comp_win(user_choice, computer_choice)
   
    elsif user_choice == 'R' && computer_choice == 'Sp'
     prompt(MESSAGES['comp_won_spock_R'])
-    true  
-  end
+    true 
+  end 
 end
 
 # Primmary Logic Method
 
 def game_logic(user_choice, computer_choice)
   tie_game(user_choice, computer_choice)
-  user_won = user_win(user_choice, computer_choice)
-  comp_won = comp_win(user_choice, computer_choice)
+  user_won1 = user_win1(user_choice, computer_choice)
+  user_won2 = user_win2(user_choice, computer_choice)
+  comp_won1 = comp_win1(user_choice, computer_choice)
+  comp_won2 = comp_win2(user_choice, computer_choice)
 
-  if user_won == true
+  if user_won1 == true || user_won2 == true
     true
-  elsif comp_won == true
+  elsif comp_won1 == true || comp_won2 == true 
     false
   end
 end
