@@ -2,12 +2,12 @@ User makes a choice
 Computer makes a choice 
 The game displays the winner 
 
-Rules: 
+Rules: 3
 Rock beats scissors 
 Paper beats rock 
 Scissors beats paper
 
-New Rules:
+New Rules: Need SEVEN MORE oh god.
 Rock beats lizard
 Lizard beats Spock
 Spock Smashes Scissors
