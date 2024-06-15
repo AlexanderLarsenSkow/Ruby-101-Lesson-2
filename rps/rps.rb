@@ -88,31 +88,88 @@ end
 
 def user_win(user_choice, computer_choice)
   if user_choice == 'R' && computer_choice == 'S'
-    prompt(MESSAGES['user_won_rock'])
+    prompt(MESSAGES['user_won_rock_S'])
     true
 
   elsif user_choice == 'P' && computer_choice == 'R'
-    prompt(MESSAGES['user_won_paper'])
+    prompt(MESSAGES['user_won_paper_R'])
     true
 
   elsif user_choice == 'S' && computer_choice == 'P'
-    prompt(MESSAGES['user_won_scissors'])
+    prompt(MESSAGES['user_won_scissors_P'])
     true
+    
+   elsif user_choice == 'R' && computer_choice == 'L'
+    prompt(MESSAGES['user_won_rock_L'])
+    true
+   
+   elsif user_choice == 'L' && computer_choice == 'SP'
+    prompt(MESSAGES['user_won_lizard_SP'])
+    true
+    
+   elsif user_choice == 'SP' && computer_choice == 'S'
+    prompt(MESSAGES['user_won_spock_S'])
+    true  
+    
+  elsif user_choice == 'S' && computer_choice == 'L'
+    prompt(MESSAGES['user_won_scissors_L'])
+    true
+    
+   elsif user_choice == 'L' && computer_choice == 'P'
+    prompt(MESSAGES['user_won_lizard_P'])
+    true
+    
+   elsif user_choice == 'P' && computer_choice == 'SP'
+    prompt(MESSAGES['user_won_paper_SP'])
+    true
+  
+   elsif user_choice == 'SP' && computer_choice == 'R'
+    prompt(MESSAGES['user_won_rock_R'])
+    true  
+    
   end
 end
 
 def comp_win(user_choice, computer_choice)
   if user_choice == 'R' && computer_choice == 'P'
-    prompt(MESSAGES['comp_won_paper'])
+    prompt(MESSAGES['comp_won_paper_R'])
     true
 
   elsif user_choice == 'P' && computer_choice == 'S'
-    prompt(MESSAGES['comp_won_scissors'])
+    prompt(MESSAGES['comp_won_scissors_P'])
     true
 
   elsif user_choice == 'S' && computer_choice == 'R'
-    prompt(MESSAGES['comp_won_rock'])
+    prompt(MESSAGES['comp_won_rock_S'])
     true
+    
+  elsif user_choice == 'L' && computer_choice == 'R'
+    prompt(MESSAGES['comp_won_rock_L'])
+    true
+    
+  elsif user_choice == 'SP' && computer_choice == 'L'
+    prompt(MESSAGES['comp_won_lizard_SP'])
+    true
+    
+  elsif user_choice == 'S' && computer_choice == 'Sp'
+    prompt(MESSAGES['comp_won_spock_S'])
+    true
+  
+  elsif user_choice == 'L' && computer_choice == 'S'
+    prompt(MESSAGES['comp_won_scissors_L'])
+    true
+    
+  elsif user_choice == 'P' && computer_choice == 'L'
+    prompt(MESSAGES['comp_won_lizard_P'])
+    true
+    
+   elsif user_choice == 'SP' && computer_choice == 'P'
+    prompt(MESSAGES['comp_won_paper_SP'])
+    true
+  
+   elsif user_choice == 'R' && computer_choice == 'Sp'
+    prompt(MESSAGES['comp_won_spock_R'])
+    true  
   end
 end
 
@@ -154,10 +211,10 @@ def main_game
     when false then comp_points += 1
     end
 
-    prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
-
     break if user_points == 3
     break if comp_points == 3
+    
+    prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
   end
   display_win_loss(username, user_points, comp_points)
 end

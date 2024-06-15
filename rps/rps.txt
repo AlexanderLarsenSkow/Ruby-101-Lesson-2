@@ -8,13 +8,13 @@ Paper beats rock
 Scissors beats paper
 
 New Rules: Need SEVEN MORE oh god.
-Rock beats lizard
-Lizard beats Spock
-Spock Smashes Scissors
-Scissors beats lizard
-Lizard beats paper
-Paper beats Spock
-Spock beats rock
+Rock beats lizard x
+Lizard beats Spock x
+Spock Smashes Scissors x
+Scissors beats lizard x
+Lizard beats paper x
+Paper beats Spock x
+Spock beats rock 
 
 Expected Input: 
 User_choice R, P, S 

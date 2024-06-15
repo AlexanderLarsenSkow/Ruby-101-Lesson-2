@@ -18,21 +18,38 @@ chose_scissors: "You have chosen Scissors."
 chose_lizard: "You have chosen Lizard."
 chose_spock: "You have chosen Spock."
 
-comp_rock: "Rockbot_5000 chose Rock!"
-comp_paper: "Rockbot_5000 chose Paper!"
-comp_scissors: "Rockbot_5000 chose Scissors!"
-comp_lizard: "Rockbot_5000 chose Lizard!"
-comp_spock: "Rockbot_5000 chose Spock!"
+comp_rock: "Rockbot_5000 chose Rock."
+comp_paper: "Rockbot_5000 chose Paper."
+comp_scissors: "Rockbot_5000 chose Scissors."
+comp_lizard: "Rockbot_5000 chose Lizard."
+comp_spock: "Rockbot_5000 chose Spock."
 
 tie: "Tied Point"
 
+user_won_paper_R: "Paper covers Rock! That's a point for you."
+user_won_rock_S: "Rock SMASH Scissors! That's a point for you."
+user_won_scissors_P: "Scissors cuts Paper! That's a point for you."
+user_won_rock_L: "Rock SMASH Lizard! That's a point for you."
+user_won_lizard_SP: "Lizard licks Spock! He's helpless! That's a point for you."
+user_won_spock_S: "Spock used mind powers on the scissors! Scissors are mindless. Spock wins. That's a point for you."
+user_won_scissors_L: "Scissors decapitated Lizard! That's a point for you."
+user_won_lizard_P: "Lizard ate the Paper! That's a point for you."
+user_won_paper_SP: "Paper makes fun of Spock. Spock cries. That's a point for you."
+user_won_spock_R: "Spock vaporized Rock! It's totally effective! That's a point for you."
 
-comp_won_paper: "Paper covered your Rock! That's a point for Rockbot."
-comp_won_rock: "Rock SMASH Scissors! That's a point for Rockbot."
-comp_won_scissors: "Scissors cut your Paper! That's a point for Rockbot."
-user_won_paper: "Paper covers Rock! That's a point for you."
-user_won_rock: "Rock SMASH Scissors! That's a point for you."
-user_won_scissors: "Scissors cuts Paper! That's a point for you."
+comp_won_paper_R: "Paper covered your Rock! That's a point for Rockbot."
+comp_won_rock_S: "Rock SMASH Scissors! That's a point for Rockbot."
+comp_won_scissors_P: "Scissors cut your Paper! That's a point for Rockbot."
+comp_won_rock_L: "Rock SMASH Lizard! That's a point for Rockbot."
+comp_won_lizard_SP: "Lizard licks Spock! He's helpless! That's a point for Rockbot."
+comp_won_spock_S: "Spock used mind powers on the Scissors! Scissors are mindless. Spock wins. That's a point for Rockbot."
+comp_won_scissors_L: "Scissors decapitated Lizard! That's a point for Rockbot."
+comp_won_lizard_P: "Lizard ate the Paper! That's a point for Rockbot."
+comp_won_paper_SP: "Paper makes fun of Spock. Spock cries. That's a point for Rockbot."
+comp_won_spock_R: "Spock vaporized Rock! It's totally effective! That's a point for Rockbot."
+
+
+
 
 win: 'you won!'
 lose: 'you lost!'
