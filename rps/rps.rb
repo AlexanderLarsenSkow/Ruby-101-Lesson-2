@@ -122,7 +122,7 @@ end
 
 # Display Win or Loss to the User
 
-def display_score(username, user_points, comp_points)
+def display_win_loss(username, user_points, comp_points)
   prompt("#{username}, #{MESSAGES['win']}") if user_points == 3
   prompt("#{username}, #{MESSAGES['lose']}") if comp_points == 3
 end
@@ -158,7 +158,7 @@ loop do
   end
 
   prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
-  display_score(username, user_points, comp_points)
+  display_win_loss(username, user_points, comp_points)
 
   if user_points == 3 || comp_points == 3
     answer = new_game?(user_points, comp_points)
