@@ -80,7 +80,7 @@ end
 
 # Strings Collection for all Win/Loss Conditions
 
-wins_losses_hash = {
+wins_losses_display_collection = {
   
   # User Wins
   'R_vs_S' => MESSAGES['user_won_rock_vs_scissors'], 
@@ -114,17 +114,10 @@ wins_losses_hash = {
   'SP_vs_SP' => MESSAGES['tie']
 }
 
-# Primmary Logic Method
+# Returning the value from the collection
 
-def game_logic(user_choice, computer_choice, hash)
-  display = hash["#{user_choice}_vs_#{computer_choice}"]
-  prompt(display)
-  
-  if display.include?('you')
-    true 
-  elsif display.include?('Rockbot')
-    false
-  end
+def return_result(hash, user_choice, computer_choice)
+  hash["#{user_choice}_vs_#{computer_choice}"]
 end
 
 # Display Win or Loss to the User
@@ -141,7 +134,7 @@ def new_game?(user_points, comp_points)
     gets.chomp.upcase
 end 
 
-# Main Game
+# Let's Play
 
 username = get_username
 user_points = 0
@@ -150,13 +143,16 @@ comp_points = 0
 loop do
   user_choice = get_user_choice
   computer_choice = get_computer_choice
-  result = game_logic(user_choice, computer_choice, wins_losses_hash)
+  result = return_result(wins_losses_display_collection, user_choice, computer_choice)
+  
+  prompt(result)
 
-  case result
-  when true then user_points += 1
-  when false then comp_points += 1
+  if result.include?('you')
+    user_points += 1
+  elsif result.include?('Rockbot')
+    comp_points += 1
   end
-    
+
   prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
   display_score(username, user_points, comp_points)
   
