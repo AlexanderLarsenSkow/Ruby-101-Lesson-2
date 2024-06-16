@@ -83,28 +83,28 @@ end
 wins_losses_hash = {
   
   # User Wins
-  'R_vs_S' => MESSAGES['user_won_rock_S'], #Rock 1
-  'P_vs_R' => MESSAGES['user_won_paper_R'], # Paper 1
-  'S_vs_P' => MESSAGES['user_won_scissors_P'], # Scissor 1
-  'R_vs_L' => MESSAGES['user_won_rock_L'], #Rock 2
-  'L_vs_SP' => MESSAGES['user_won_lizard_SP'], # Lizard 1
-  'SP_vs_S' => MESSAGES['user_won_spock_S'], #Spock 1
-  'S_vs_L' => MESSAGES['user_won_scissors_L'], #Scissors 2 
-  'L_vs_P' => MESSAGES['user_won_lizard_P'], #Lizard 2
-  'P_vs_SP' => MESSAGES['user_won_paper_SP'], #Paper 2
-  'SP_vs_R' => MESSAGES['user_won_spock_R'], #Spock 2
+  'R_vs_S' => MESSAGES['user_won_rock_vs_scissors'], 
+  'P_vs_R' => MESSAGES['user_won_paper_vs_rock'], 
+  'S_vs_P' => MESSAGES['user_won_scissors_vs_paper'], 
+  'R_vs_L' => MESSAGES['user_won_rock_vs_lizard'], 
+  'L_vs_SP' => MESSAGES['user_won_lizard_vs_spock'],
+  'SP_vs_S' => MESSAGES['user_won_spock_vs_scissors'],
+  'S_vs_L' => MESSAGES['user_won_scissors_vs_lizard'],
+  'L_vs_P' => MESSAGES['user_won_lizard_vs_paper'],
+  'P_vs_SP' => MESSAGES['user_won_paper_vs_spock'],
+  'SP_vs_R' => MESSAGES['user_won_spock_vs_rock'],
   
   # Computer Wins
-  'R_vs_P' => MESSAGES['comp_won_paper_R'], #Rock 3
-  'P_vs_S' => MESSAGES['comp_won_scissors_P'], #Paper 3
-  'S_vs_R' => MESSAGES['comp_won_rock_S'], # Scissors 3
-  'L_vs_R' => MESSAGES['comp_won_rock_L'], #Lizard 3
-  'SP_vs_L' => MESSAGES['comp_won_lizard_SP'], #SP 
-  'S_vs_SP' => MESSAGES['comp_won_spock_S'], # Scissors 4
-  'L_vs_S' => MESSAGES['comp_won_scissors_L'], #Lizard 4
-  'P_vs_L' => MESSAGES['comp_won_lizard_P'], # Paper 4
-  'SP_vs_P' => MESSAGES['comp_won_paper_SP'], #Spock 4
-  'R_vs_SP' => MESSAGES['comp_won_spock_R'], # Rock 4
+  'R_vs_P' => MESSAGES['comp_won_rock_vs_paper'],
+  'P_vs_S' => MESSAGES['comp_won_paper_vs_scissors'],
+  'S_vs_R' => MESSAGES['comp_won_scissors_vs_rock'],
+  'L_vs_R' => MESSAGES['comp_won_lizard_vs_rock'],
+  'SP_vs_L' => MESSAGES['comp_won_spock_vs_lizard'],
+  'S_vs_SP' => MESSAGES['comp_won_scissors_vs_spock'],
+  'L_vs_S' => MESSAGES['comp_won_lizard_vs_scissors'],
+  'P_vs_L' => MESSAGES['comp_won_paper_vs_lizard'],
+  'SP_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
+  'R_vs_SP' => MESSAGES['comp_won_rock_vs_spock'],
   
   # Tie Game 
   'R_vs_R' => MESSAGES['tie'],
