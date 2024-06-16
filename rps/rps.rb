@@ -4,7 +4,7 @@ MESSAGES = YAML.load_file('rps.yml')
 # Validating user_input
 
 def input_validation(n)
-  n == 'R' || n == 'P' || n == 'S' || n == 'L' || n == 'SP'
+  n == 'R' || n == 'P' || n == 'S' || n == 'L' || n == 'SP' || n == 'Q'
 end
 
 # Prompting the user
@@ -142,6 +142,9 @@ comp_points = 0
 
 loop do
   user_choice = get_user_choice
+  
+  break if user_choice == 'Q'
+  
   computer_choice = get_computer_choice
   result = return_result(wins_losses_display_collection, user_choice, computer_choice)
   
@@ -164,3 +167,5 @@ loop do
     comp_points = 0
   end 
 end 
+
+prompt("#{MESSAGES['thanks']} #{username}!")
