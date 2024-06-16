@@ -20,7 +20,7 @@ def get_username
   loop do
     prompt(MESSAGES['welcome'])
     prompt(MESSAGES['name'])
-    username = gets.chomp.capitalize 
+    username = gets.chomp.capitalize
 
     break unless username.empty?
     prompt(MESSAGES['username_error'])
@@ -36,8 +36,8 @@ def display_user(choice)
   when 'R' then prompt(MESSAGES['chose_rock'])
   when 'P' then prompt(MESSAGES['chose_paper'])
   when 'S' then prompt(MESSAGES['chose_scissors'])
-  when 'L' then prompt (MESSAGES['chose_lizard'])
-  when 'SP' then prompt (MESSAGES['chose_spock'])
+  when 'L' then prompt(MESSAGES['chose_lizard'])
+  when 'SP' then prompt(MESSAGES['chose_spock'])
   end
 end
 
@@ -81,19 +81,19 @@ end
 # Strings Collection for all Win/Loss Conditions
 
 wins_losses_display_collection = {
-  
+
   # User Wins
-  'R_vs_S' => MESSAGES['user_won_rock_vs_scissors'], 
-  'P_vs_R' => MESSAGES['user_won_paper_vs_rock'], 
-  'S_vs_P' => MESSAGES['user_won_scissors_vs_paper'], 
-  'R_vs_L' => MESSAGES['user_won_rock_vs_lizard'], 
+  'R_vs_S' => MESSAGES['user_won_rock_vs_scissors'],
+  'P_vs_R' => MESSAGES['user_won_paper_vs_rock'],
+  'S_vs_P' => MESSAGES['user_won_scissors_vs_paper'],
+  'R_vs_L' => MESSAGES['user_won_rock_vs_lizard'],
   'L_vs_SP' => MESSAGES['user_won_lizard_vs_spock'],
   'SP_vs_S' => MESSAGES['user_won_spock_vs_scissors'],
   'S_vs_L' => MESSAGES['user_won_scissors_vs_lizard'],
   'L_vs_P' => MESSAGES['user_won_lizard_vs_paper'],
   'P_vs_SP' => MESSAGES['user_won_paper_vs_spock'],
   'SP_vs_R' => MESSAGES['user_won_spock_vs_rock'],
-  
+
   # Computer Wins
   'R_vs_P' => MESSAGES['comp_won_rock_vs_paper'],
   'P_vs_S' => MESSAGES['comp_won_paper_vs_scissors'],
@@ -105,8 +105,8 @@ wins_losses_display_collection = {
   'P_vs_L' => MESSAGES['comp_won_paper_vs_lizard'],
   'SP_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
   'R_vs_SP' => MESSAGES['comp_won_rock_vs_spock'],
-  
-  # Tie Game 
+
+  # Tie Game
   'R_vs_R' => MESSAGES['tie'],
   'P_vs_P' => MESSAGES['tie'],
   'S_vs_S' => MESSAGES['tie'],
@@ -129,10 +129,10 @@ end
 
 # Asking the User for a new game
 
-def new_game?(user_points, comp_points)
-    prompt(MESSAGES['new_game'])
-    gets.chomp.upcase
-end 
+def new_game?(_user_points, _comp_points)
+  prompt(MESSAGES['new_game'])
+  gets.chomp.upcase
+end
 
 # Let's Play
 
@@ -142,12 +142,13 @@ comp_points = 0
 
 loop do
   user_choice = get_user_choice
-  
+
   break if user_choice == 'Q'
-  
+
   computer_choice = get_computer_choice
-  result = return_result(wins_losses_display_collection, user_choice, computer_choice)
-  
+  result = return_result(wins_losses_display_collection, user_choice,
+                         computer_choice)
+
   prompt(result)
 
   if result.include?('you')
@@ -158,14 +159,14 @@ loop do
 
   prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
   display_score(username, user_points, comp_points)
-  
+
   if user_points == 3 || comp_points == 3
     answer = new_game?(user_points, comp_points)
-  
+
     break unless answer.start_with?('Y')
     user_points = 0
     comp_points = 0
-  end 
-end 
+  end
+end
 
 prompt("#{MESSAGES['thanks']} #{username}!")
