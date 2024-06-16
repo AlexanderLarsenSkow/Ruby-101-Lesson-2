@@ -61,3 +61,5 @@ comp_won_spock_R: "Spock vaporized Rock! It's totally effective! That's a point 
 
 win: 'you won!'
 lose: 'you lost!'
+
+new_game: "Play again? Enter Y / N."

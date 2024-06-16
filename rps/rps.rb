@@ -29,10 +29,10 @@ def get_username
   username
 end
 
-# Displaying to the User's Choice
+# Displaying the User's Choice
 
-def display_user(user_choice)
-  case user_choice
+def display_user(choice)
+  case choice
   when 'R' then prompt(MESSAGES['chose_rock'])
   when 'P' then prompt(MESSAGES['chose_paper'])
   when 'S' then prompt(MESSAGES['chose_scissors'])
@@ -58,8 +58,8 @@ end
 
 # Displaying the Computer's Choice
 
-def display_comp(computer_choice)
-  case computer_choice
+def display_comp(choice)
+  case choice
   when 'R' then prompt(MESSAGES['comp_rock'])
   when 'P' then prompt(MESSAGES['comp_paper'])
   when 'S' then prompt(MESSAGES['comp_scissors'])
@@ -78,7 +78,7 @@ def get_computer_choice
   computer_choice
 end
 
-# Display Strings Collection for all Win/Loss Conditions
+# Strings Collection for all Win/Loss Conditions
 
 wins_losses_hash = {
   
@@ -124,36 +124,47 @@ def game_logic(user_choice, computer_choice, hash)
     true 
   elsif display.include?('Rockbot')
     false
-  end 
+  end
 end
 
 # Display Win or Loss to the User
 
-def display_win_loss(username, user_points, comp_points)
+def display_score(username, user_points, comp_points)
   prompt("#{username}, #{MESSAGES['win']}") if user_points == 3
   prompt("#{username}, #{MESSAGES['lose']}") if comp_points == 3
 end
 
+# Asking the User for a new game
+
+def new_game?(user_points, comp_points)
+    prompt(MESSAGES['new_game'])
+    gets.chomp.upcase
+end 
+
 # Main Game
 
-  username = get_username
-  user_points = 0
-  comp_points = 0
+username = get_username
+user_points = 0
+comp_points = 0
 
-  loop do
-    user_choice = get_user_choice
-    computer_choice = get_computer_choice
-    result = game_logic(user_choice, computer_choice, wins_losses_hash)
+loop do
+  user_choice = get_user_choice
+  computer_choice = get_computer_choice
+  result = game_logic(user_choice, computer_choice, wins_losses_hash)
 
-    case result
-    when true then user_points += 1
-    when false then comp_points += 1
-    end
-
-    break if user_points == 3
-    break if comp_points == 3
-    
-    prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
+  case result
+  when true then user_points += 1
+  when false then comp_points += 1
   end
-  display_win_loss(username, user_points, comp_points)
-
+    
+  prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
+  display_score(username, user_points, comp_points)
+  
+  if user_points == 3 || comp_points == 3
+    answer = new_game?(user_points, comp_points)
+  
+    break unless answer.start_with?('Y')
+    user_points = 0
+    comp_points = 0
+  end 
+end 
