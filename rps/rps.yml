@@ -31,31 +31,31 @@ user_won_rock_vs_scissors: "Rock SMASH Scissors! That's a point for you."
 user_won_scissors_vs_paper: "Scissors cuts Paper! That's a point for you."
 user_won_rock_vs_lizard: "Rock SMASH Lizard! That's a point for you."
 
-user_won_lizard_vs_spock: "Lizard licks Spock! He's helpless! That's a point for you."
-user_won_spock_S: "Spock used mind powers on the scissors! Scissors are mindless. Spock wins. That's a point for you."
+user_won_lizard_vs_spock: "Lizard poisons Spock! That's a point for you."
+user_won_spock_S: "Spock throws Scissors in the garbage! That's a point for you."
 
-user_won_scissors_vs_lizard: "Scissors decapitated Lizard! That's a point for you."
-user_won_lizard_vs_paper: "Lizard ate the Paper! That's a point for you."
+user_won_scissors_vs_lizard: "Scissors decapitates Lizard! That's a point for you."
+user_won_lizard_vs_paper: "Lizard eats Paper! That's a point for you."
 
-user_won_paper_vs_spock: "Paper makes fun of Spock. Spock cries. That's a point for you."
-user_won_spock_vs_rock: "Spock vaporized Rock! It's totally effective! That's a point for you."
+user_won_paper_vs_spock: "Paper reasons with Spock. He can't handle the superior logic. That's a point for you."
+user_won_spock_vs_rock: "Spock vaporizes Rock! It's totally effective! That's a point for you."
 
 
 
-comp_won_rock_vs_paper: "Paper covered the Rock! That's a point for Rockbot."
+comp_won_rock_vs_paper: "Paper covers Rock! That's a point for Rockbot."
 comp_won_scissors_vs_rock: "Rock SMASH Scissors! That's a point for Rockbot."
 
-comp_won_paper_vs_scissors: "Scissors cut the Paper! That's a point for Rockbot."
+comp_won_paper_vs_scissors: "Scissors cuts Paper! That's a point for Rockbot."
 comp_won_rock_L: "Rock SMASH Lizard! That's a point for Rockbot."
 
-comp_won_spock_vs_lizard: "Lizard licks Spock! He's helpless! That's a point for Rockbot."
-comp_won_scissors_vs_spock: "Spock used mind powers on the Scissors! Scissors are mindless. Spock wins. That's a point for Rockbot."
+comp_won_spock_vs_lizard: "Lizard poisons Spock! That's a point for Rockbot."
+comp_won_scissors_vs_spock: "Spock throws Scissors in the garbage! That's a point for Rockbot."
 
-comp_won_lizard_vs_scissors: "Scissors decapitated Lizard! That's a point for Rockbot."
-comp_won_paper_vs_lizard: "Lizard ate the Paper! That's a point for Rockbot."
+comp_won_lizard_vs_scissors: "Scissors decapitates Lizard! That's a point for Rockbot."
+comp_won_paper_vs_lizard: "Lizard eats Paper! That's a point for Rockbot."
 
-comp_won_spock_vs_paper: "Paper makes fun of Spock. Spock cries. That's a point for Rockbot."
-comp_won_rock_vs_spock: "Spock vaporized Rock! It's totally effective! That's a point for Rockbot."
+comp_won_spock_vs_paper: "Paper reasons with Spock. He can't handle the superior logic. That's a point for Rockbot."
+comp_won_rock_vs_spock: "Spock vaporizes Rock! It's totally effective! That's a point for Rockbot."
 
 
 tie: "Tied Point"
