@@ -78,120 +78,53 @@ def get_computer_choice
   computer_choice
 end
 
-# Defining the Game's Logic with Helper Methods
+# Display Strings Collection for all Win/Loss Conditions
 
-def tie_game(user_choice, computer_choice)
-  if user_choice == computer_choice
-    prompt(MESSAGES['tie'])
-  end
-end
-
-def user_win1(user_choice, computer_choice)
-  if user_choice == 'R' && computer_choice == 'S'
-    prompt(MESSAGES['user_won_rock_S'])
-    true
-
-  elsif user_choice == 'P' && computer_choice == 'R'
-    prompt(MESSAGES['user_won_paper_R'])
-    true
-
-  elsif user_choice == 'S' && computer_choice == 'P'
-    prompt(MESSAGES['user_won_scissors_P'])
-    true
-    
-   elsif user_choice == 'R' && computer_choice == 'L'
-    prompt(MESSAGES['user_won_rock_L'])
-    true
-   
-   elsif user_choice == 'L' && computer_choice == 'SP'
-    prompt(MESSAGES['user_won_lizard_SP'])
-    true
-  end
-end 
-
-def user_win2(user_choice, computer_choice) 
-  if user_choice == 'SP' && computer_choice == 'S'
-    prompt(MESSAGES['user_won_spock_S'])
-    true  
-    
-  elsif user_choice == 'S' && computer_choice == 'L'
-    prompt(MESSAGES['user_won_scissors_L'])
-    true
-    
-   elsif user_choice == 'L' && computer_choice == 'P'
-    prompt(MESSAGES['user_won_lizard_P'])
-    true
-    
-   elsif user_choice == 'P' && computer_choice == 'SP'
-    prompt(MESSAGES['user_won_paper_SP'])
-    true
+wins_losses_hash = {
   
-   elsif user_choice == 'SP' && computer_choice == 'R'
-    prompt(MESSAGES['user_won_rock_R'])
-    true
-  end 
-end 
-
-def comp_win1(user_choice, computer_choice)
-  if user_choice == 'R' && computer_choice == 'P'
-    prompt(MESSAGES['comp_won_paper_R'])
-    true
-
-  elsif user_choice == 'P' && computer_choice == 'S'
-    prompt(MESSAGES['comp_won_scissors_P'])
-    true
-
-  elsif user_choice == 'S' && computer_choice == 'R'
-    prompt(MESSAGES['comp_won_rock_S'])
-    true
-    
-  elsif user_choice == 'L' && computer_choice == 'R'
-    prompt(MESSAGES['comp_won_rock_L'])
-    true
-    
-  elsif user_choice == 'SP' && computer_choice == 'L'
-    prompt(MESSAGES['comp_won_lizard_SP'])
-    true
-  end
-end
-
-def comp_win2(user_choice, computer_choice)
-  if user_choice == 'S' && computer_choice == 'Sp'
-    prompt(MESSAGES['comp_won_spock_S'])
-    true
+  # User Wins
+  'R_vs_S' => MESSAGES['user_won_rock_S'], #Rock 1
+  'P_vs_R' => MESSAGES['user_won_paper_R'], # Paper 1
+  'S_vs_P' => MESSAGES['user_won_scissors_P'], # Scissor 1
+  'R_vs_L' => MESSAGES['user_won_rock_L'], #Rock 2
+  'L_vs_SP' => MESSAGES['user_won_lizard_SP'], # Lizard 1
+  'SP_vs_S' => MESSAGES['user_won_spock_S'], #Spock 1
+  'S_vs_L' => MESSAGES['user_won_scissors_L'], #Scissors 2 
+  'L_vs_P' => MESSAGES['user_won_lizard_P'], #Lizard 2
+  'P_vs_SP' => MESSAGES['user_won_paper_SP'], #Paper 2
+  'SP_vs_R' => MESSAGES['user_won_spock_R'], #Spock 2
   
-  elsif user_choice == 'L' && computer_choice == 'S'
-    prompt(MESSAGES['comp_won_scissors_L'])
-    true
-    
-  elsif user_choice == 'P' && computer_choice == 'L'
-    prompt(MESSAGES['comp_won_lizard_P'])
-    true
-    
-   elsif user_choice == 'SP' && computer_choice == 'P'
-    prompt(MESSAGES['comp_won_paper_SP'])
-    true
+  # Computer Wins
+  'R_vs_P' => MESSAGES['comp_won_paper_R'], #Rock 3
+  'P_vs_S' => MESSAGES['comp_won_scissors_P'], #Paper 3
+  'S_vs_R' => MESSAGES['comp_won_rock_S'], # Scissors 3
+  'L_vs_R' => MESSAGES['comp_won_rock_L'], #Lizard 3
+  'SP_vs_L' => MESSAGES['comp_won_lizard_SP'], #SP 
+  'S_vs_SP' => MESSAGES['comp_won_spock_S'], # Scissors 4
+  'L_vs_S' => MESSAGES['comp_won_scissors_L'], #Lizard 4
+  'P_vs_L' => MESSAGES['comp_won_lizard_P'], # Paper 4
+  'SP_vs_P' => MESSAGES['comp_won_paper_SP'], #Spock 4
+  'R_vs_SP' => MESSAGES['comp_won_spock_R'], # Rock 4
   
-   elsif user_choice == 'R' && computer_choice == 'Sp'
-    prompt(MESSAGES['comp_won_spock_R'])
-    true 
-  end 
-end
+  # Tie Game 
+  'R_vs_R' => MESSAGES['tie'],
+  'P_vs_P' => MESSAGES['tie'],
+  'S_vs_S' => MESSAGES['tie'],
+  'L_vs_L' => MESSAGES['tie'],
+  'SP_vs_SP' => MESSAGES['tie']
+}
 
 # Primmary Logic Method
 
-def game_logic(user_choice, computer_choice)
-  tie_game(user_choice, computer_choice)
-  user_won1 = user_win1(user_choice, computer_choice)
-  user_won2 = user_win2(user_choice, computer_choice)
-  comp_won1 = comp_win1(user_choice, computer_choice)
-  comp_won2 = comp_win2(user_choice, computer_choice)
-
-  if user_won1 == true || user_won2 == true
-    true
-  elsif comp_won1 == true || comp_won2 == true 
+def game_logic(user_choice, computer_choice, hash)
+  display = hash["#{user_choice}_vs_#{computer_choice}"]
+  prompt(display)
+  
+  if display.include?('you')
+    true 
+  elsif display.include?('Rockbot')
     false
-  end
+  end 
 end
 
 # Display Win or Loss to the User
@@ -203,7 +136,6 @@ end
 
 # Main Game
 
-def main_game
   username = get_username
   user_points = 0
   comp_points = 0
@@ -211,7 +143,7 @@ def main_game
   loop do
     user_choice = get_user_choice
     computer_choice = get_computer_choice
-    result = game_logic(user_choice, computer_choice)
+    result = game_logic(user_choice, computer_choice, wins_losses_hash)
 
     case result
     when true then user_points += 1
@@ -224,6 +156,4 @@ def main_game
     prompt(format("You: %s / Rockbot: %s", user_points, comp_points))
   end
   display_win_loss(username, user_points, comp_points)
-end
 
-main_game
