@@ -1,10 +1,25 @@
 require 'yaml'
 MESSAGES = YAML.load_file('rps.yml')
 
+# Constants:
+
+CHOICES = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+
+# Creating an Abbreviation Array Method
+
+def abbreviate(choices)
+  choices_abbreviations = []
+  choices.each {|choice| choices_abbreviations << choice[0] }
+  
+  choices_abbreviations[4] += "P"
+  choices_abbreviations
+end 
+
+
 # Validating user_input
 
-def input_validation(n)
-  n == 'R' || n == 'P' || n == 'S' || n == 'L' || n == 'SP' || n == 'Q'
+def input_validation(n, choices, choices_abr)
+  choices.include?(n) || choices_abr.include?(n) || n == 'Q'
 end
 
 # Prompting the user
@@ -43,13 +58,13 @@ end
 
 # Getting the User's Choice
 
-def get_user_choice
+def get_user_choice(choices, choices_abr)
   user_choice = ''
   loop do
     prompt(MESSAGES['user_choice'])
-    user_choice = gets.chomp.upcase
+    user_choice = gets.chomp.capitalize
 
-    break if input_validation(user_choice)
+    break if input_validation(user_choice, choices, choices_abr)
     prompt(MESSAGES['user_choice_error'])
   end
   display_user(user_choice)
@@ -141,7 +156,7 @@ user_points = 0
 comp_points = 0
 
 loop do
-  user_choice = get_user_choice
+  user_choice = get_user_choice(CHOICES, abbreviate(CHOICES))
 
   break if user_choice == 'Q'
 
