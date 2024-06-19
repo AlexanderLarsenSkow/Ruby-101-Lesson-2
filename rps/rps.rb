@@ -28,8 +28,24 @@ WIN_CONDITIONS = {
   'Spock' => ['R', 'S', 'Rock', 'Scissors']
 }
 
+# String Collection for all Game Win/Loss Scenarios
 
-# Creating an Abbreviation Array Method
+DISPLAY_COLLECTION = {
+
+  'R_vs_S' => MESSAGES['rock_beats-scissors'],
+  'P_vs_R' => MESSAGES['paper_beats_rock'],
+  'S_vs_P' => MESSAGES['scissors_beats_paper'],
+  'R_vs_L' => MESSAGES['rock_beats_lizard'],
+  'L_vs_Sp' => MESSAGES['lizard_beats_spock'],
+  
+  'Sp_vs_S' => MESSAGES['spock_beats_scissors'],
+  'S_vs_L' => MESSAGES['scissors_beats_lizard'],
+  'L_vs_P' => MESSAGES['lizard_beats_paper'],
+  'P_vs_Sp' => MESSAGES['paper_beats_spock'],
+  'Sp_vs_R' => MESSAGES['spock_beats_rock'],
+}
+
+# Abbreviating the CHOICES Array
 
 def abbreviate(choices)
   choices_abbreviations = []
@@ -84,7 +100,6 @@ def display_user(choice)
   end
 end 
 
-
 # Getting the User's Choice
 
 def get_user_choice(choices, choices_abr)
@@ -122,60 +137,25 @@ def get_computer_choice
   computer_choice
 end
 
-# Strings Collection for all Win/Loss Conditions
-
-wins_losses_display_collection = {
-
-  # User Wins
-  'R_vs_S' => MESSAGES['user_won_rock_vs_scissors'],
-  'P_vs_R' => MESSAGES['user_won_paper_vs_rock'],
-  'S_vs_P' => MESSAGES['user_won_scissors_vs_paper'],
-  'R_vs_L' => MESSAGES['user_won_rock_vs_lizard'],
-  'L_vs_Sp' => MESSAGES['user_won_lizard_vs_spock'],
-  'Sp_vs_S' => MESSAGES['user_won_spock_vs_scissors'],
-  'S_vs_L' => MESSAGES['user_won_scissors_vs_lizard'],
-  'L_vs_P' => MESSAGES['user_won_lizard_vs_paper'],
-  'P_vs_Sp' => MESSAGES['user_won_paper_vs_spock'],
-  'Sp_vs_R' => MESSAGES['user_won_spock_vs_rock'],
-
-  # Computer Wins
-  #'R_vs_P' => MESSAGES['comp_won_rock_vs_paper'],
-  #'P_vs_S' => MESSAGES['comp_won_paper_vs_scissors'],
-  #'S_vs_R' => MESSAGES['comp_won_scissors_vs_rock'],
-  #'L_vs_R' => MESSAGES['comp_won_lizard_vs_rock'],
-  #'Sp_vs_L' => MESSAGES['comp_won_spock_vs_lizard'],
-  #'S_vs_Sp' => MESSAGES['comp_won_scissors_vs_spock'],
-  #'L_vs_S' => MESSAGES['comp_won_lizard_vs_scissors'],
-  #'P_vs_L' => MESSAGES['comp_won_paper_vs_lizard'],
-  #'Sp_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
-  #'R_vs_Sp' => MESSAGES['comp_won_rock_vs_spock'],
-
-  # Tie Game
-  'R_vs_R' => MESSAGES['tie'],
-  'P_vs_P' => MESSAGES['tie'],
-  'S_vs_S' => MESSAGES['tie'],
-  'L_vs_L' => MESSAGES['tie'],
-  'Sp_vs_Sp' => MESSAGES['tie']
-}
-
-# Collecting display from the hash 
+# Collecting Display from Display Collection Based on User/Computer input
 
 def return_user_result(hash, user_choice, computer_choice)
-	
-	if user_choice[1] == 'p'
-    return hash["Sp_vs_#{computer_choice}"]
-	else 
-    return hash["#{user_choice[0]}_vs_#{computer_choice}"]
-	end
-end
-	
-	def return_computer_result(hash, user_choice, computer_choice)
-	  if user_choice[1] == 'p'
-		  return hash["#{computer_choice}_vs_Sp"]
+  case user_choice[1]
+    when 'p' then hash["Sp_vs_#{computer_choice}"]
 	  else 
-		  return hash["#{computer_choice}_vs_#{user_choice[0]}"]
-	  end 
-	end 
+	    hash["#{user_choice[0]}_vs_#{computer_choice}"]
+  end
+end 
+
+def return_computer_result(hash, user_choice, computer_choice)
+  case user_choice[1]
+    when 'p' then hash["#{computer_choice}_vs_Sp"]
+    else 
+      hash["#{computer_choice}_vs_#{user_choice[0]}"]
+  end 
+end 
+  	  
+# Determining the Winner Based on WIN_CONDITIONS 
 
 def find_winner(hash, first, second, conditions_hash)
 	if conditions_hash[first].include?(second)
@@ -184,23 +164,9 @@ def find_winner(hash, first, second, conditions_hash)
 	elsif conditions_hash[second].include?(first)
 		return return_computer_result(hash, first, second), "Rockbot gets a point."
 	else 
-		"tied point"	
+		MESSAGES['tie']
 	end 
 end
-
-
-
-
-# Returning the value from the collection
-=begin
-def return_result(hash, user_choice, computer_choice)
-  if user_choice[1] == 'p'
-    hash["Sp_vs_#{computer_choice}"]
-  else 
-    hash["#{user_choice[0]}_vs_#{computer_choice}"]
-  end
-end
-=end 
 
 # Display Win or Loss to the User
 
@@ -228,8 +194,8 @@ loop do
   break if user_choice == 'Q'
 
   computer_choice = get_computer_choice
-  result = find_winner(wins_losses_display_collection, user_choice,
-                         computer_choice, WIN_CONDITIONS)
+  result = find_winner(DISPLAY_COLLECTION, user_choice,
+                       computer_choice, WIN_CONDITIONS)
 
   prompt(result)
 
