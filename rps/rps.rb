@@ -1,9 +1,33 @@
 require 'yaml'
 MESSAGES = YAML.load_file('rps.yml')
 
-# Constants:
+# Constants
+
+# Choices for the game 
 
 CHOICES = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+
+# Conditions to win the game
+
+WIN_CONDITIONS = {
+  
+  # Conditions for letter input
+  
+  'R' => ['S', 'L', 'Scissors', 'Lizard'],
+  'P' => ['R', 'Sp', 'Rock', 'Spock'],
+  'S' => ['P', 'L', 'Paper', 'Lizard'],
+  'L' => ['P', 'Sp', 'Paper', 'Spock'],
+  'Sp' => ['R', 'S', 'Rock', 'Scissors'],
+  
+  # Conditions for full-word input
+  
+  'Rock' => ['S', 'L', 'Scissors', 'Lizard'],
+  'Paper' => ['R', 'Sp', 'Rock', 'Spock'],
+  'Scissors' => ['P', 'L', 'Paper', 'Lizard'],
+  'Lizard' => ['P', 'Sp', 'Paper', 'Spock'],
+  'Spock' => ['R', 'S', 'Rock', 'Scissors']
+}
+
 
 # Creating an Abbreviation Array Method
 
@@ -115,16 +139,16 @@ wins_losses_display_collection = {
   'Sp_vs_R' => MESSAGES['user_won_spock_vs_rock'],
 
   # Computer Wins
-  'R_vs_P' => MESSAGES['comp_won_rock_vs_paper'],
-  'P_vs_S' => MESSAGES['comp_won_paper_vs_scissors'],
-  'S_vs_R' => MESSAGES['comp_won_scissors_vs_rock'],
-  'L_vs_R' => MESSAGES['comp_won_lizard_vs_rock'],
-  'Sp_vs_L' => MESSAGES['comp_won_spock_vs_lizard'],
-  'S_vs_Sp' => MESSAGES['comp_won_scissors_vs_spock'],
-  'L_vs_S' => MESSAGES['comp_won_lizard_vs_scissors'],
-  'P_vs_L' => MESSAGES['comp_won_paper_vs_lizard'],
-  'Sp_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
-  'R_vs_Sp' => MESSAGES['comp_won_rock_vs_spock'],
+  #'R_vs_P' => MESSAGES['comp_won_rock_vs_paper'],
+  #'P_vs_S' => MESSAGES['comp_won_paper_vs_scissors'],
+  #'S_vs_R' => MESSAGES['comp_won_scissors_vs_rock'],
+  #'L_vs_R' => MESSAGES['comp_won_lizard_vs_rock'],
+  #'Sp_vs_L' => MESSAGES['comp_won_spock_vs_lizard'],
+  #'S_vs_Sp' => MESSAGES['comp_won_scissors_vs_spock'],
+  #'L_vs_S' => MESSAGES['comp_won_lizard_vs_scissors'],
+  #'P_vs_L' => MESSAGES['comp_won_paper_vs_lizard'],
+  #'Sp_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
+  #'R_vs_Sp' => MESSAGES['comp_won_rock_vs_spock'],
 
   # Tie Game
   'R_vs_R' => MESSAGES['tie'],
@@ -134,16 +158,50 @@ wins_losses_display_collection = {
   'Sp_vs_Sp' => MESSAGES['tie']
 }
 
-# Returning the value from the collection
+# Collecting display from the hash 
 
+def return_result(hash, first, second)
+	
+	if first[1] == 'p'
+    return hash["Sp_vs_#{second}"]
+	else 
+    return hash["#{first[0]}_vs_#{second}"]
+	end
+	
+	if second[1] == 'p'
+		return hash["#{first}_vs_Sp"]
+	else 
+		return hash["#{first}_vs_#{second[0]}"]
+	end 
+	
+end 
+
+# Finding the point winner. Now, the problem is that the full word returns nil sometimes hahaha.
+
+def find_winner(hash, first, second, conditions_hash)
+	if conditions_hash[first].include?(second)
+		return return_result(hash, first, second), "You get a point."
+		
+	elsif conditions_hash[second].include?(first)
+		return return_result(hash, second, first), "Rockbot gets a point."
+	else 
+		"tied point"	
+	end 
+end
+
+
+
+
+# Returning the value from the collection
+=begin
 def return_result(hash, user_choice, computer_choice)
   if user_choice[1] == 'p'
     hash["Sp_vs_#{computer_choice}"]
   else 
     hash["#{user_choice[0]}_vs_#{computer_choice}"]
   end
-  
 end
+=end 
 
 # Display Win or Loss to the User
 
@@ -171,14 +229,14 @@ loop do
   break if user_choice == 'Q'
 
   computer_choice = get_computer_choice
-  result = return_result(wins_losses_display_collection, user_choice,
-                         computer_choice)
+  result = find_winner(wins_losses_display_collection, user_choice,
+                         computer_choice, WIN_CONDITIONS)
 
   prompt(result)
 
-  if result.include?('you')
+  if result[1].include?('You')
     user_points += 1
-  elsif result.include?('Rockbot')
+  elsif result[1].include?('Rockbot')
     comp_points += 1
   end
 
