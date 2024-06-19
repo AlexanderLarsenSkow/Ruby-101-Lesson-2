@@ -160,30 +160,29 @@ wins_losses_display_collection = {
 
 # Collecting display from the hash 
 
-def return_result(hash, first, second)
+def return_user_result(hash, user_choice, computer_choice)
 	
-	if first[1] == 'p'
-    return hash["Sp_vs_#{second}"]
+	if user_choice[1] == 'p'
+    return hash["Sp_vs_#{computer_choice}"]
 	else 
-    return hash["#{first[0]}_vs_#{second}"]
+    return hash["#{user_choice[0]}_vs_#{computer_choice}"]
 	end
+end
 	
-	if second[1] == 'p'
-		return hash["#{first}_vs_Sp"]
-	else 
-		return hash["#{first}_vs_#{second[0]}"]
+	def return_computer_result(hash, user_choice, computer_choice)
+	  if user_choice[1] == 'p'
+		  return hash["#{computer_choice}_vs_Sp"]
+	  else 
+		  return hash["#{computer_choice}_vs_#{user_choice[0]}"]
+	  end 
 	end 
-	
-end 
-
-# Finding the point winner. Now, the problem is that the full word returns nil sometimes hahaha.
 
 def find_winner(hash, first, second, conditions_hash)
 	if conditions_hash[first].include?(second)
-		return return_result(hash, first, second), "You get a point."
+		return return_user_result(hash, first, second), "You get a point."
 		
 	elsif conditions_hash[second].include?(first)
-		return return_result(hash, second, first), "Rockbot gets a point."
+		return return_computer_result(hash, first, second), "Rockbot gets a point."
 	else 
 		"tied point"	
 	end 
