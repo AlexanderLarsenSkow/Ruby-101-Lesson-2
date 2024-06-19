@@ -32,7 +32,7 @@ WIN_CONDITIONS = {
 
 DISPLAY_COLLECTION = {
 
-  'R_vs_S' => MESSAGES['rock_beats-scissors'],
+  'R_vs_S' => MESSAGES['rock_beats_scissors'],
   'P_vs_R' => MESSAGES['paper_beats_rock'],
   'S_vs_P' => MESSAGES['scissors_beats_paper'],
   'R_vs_L' => MESSAGES['rock_beats_lizard'],
@@ -159,14 +159,26 @@ end
 
 def find_winner(hash, first, second, conditions_hash)
 	if conditions_hash[first].include?(second)
-		return return_user_result(hash, first, second), "You get a point."
+		return return_user_result(hash, first, second), MESSAGES['user_point']
 		
 	elsif conditions_hash[second].include?(first)
-		return return_computer_result(hash, first, second), "Rockbot gets a point."
+		return return_computer_result(hash, first, second), MESSAGES['comp_point']
 	else 
 		MESSAGES['tie']
 	end 
 end
+
+# Displaying values based on return value Class in find_winner
+
+def display_results(results_method)
+  
+    if results_method.is_a?(Array)
+      prompt(results_method[0])
+      prompt(results_method[1])
+    else 
+      prompt(results_method)
+    end
+end 
 
 # Display Win or Loss to the User
 
@@ -196,10 +208,11 @@ loop do
   computer_choice = get_computer_choice
   result = find_winner(DISPLAY_COLLECTION, user_choice,
                        computer_choice, WIN_CONDITIONS)
+  
+  display_results(result)
 
-  prompt(result)
 
-  if result[1].include?('You')
+  if result[1].include?('you')
     user_points += 1
   elsif result[1].include?('Rockbot')
     comp_points += 1
