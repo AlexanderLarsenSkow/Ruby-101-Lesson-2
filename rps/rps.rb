@@ -11,12 +11,11 @@ def abbreviate(choices)
   choices_abbreviations = []
   choices.each {|choice| choices_abbreviations << choice[0] }
   
-  choices_abbreviations[4] += "P"
+  choices_abbreviations[4] = "Sp"
   choices_abbreviations
 end 
 
-
-# Validating user_input
+# Validating user_input RENAME to choices_validation
 
 def input_validation(n, choices, choices_abr)
   choices.include?(n) || choices_abr.include?(n) || n == 'Q'
@@ -47,14 +46,20 @@ end
 # Displaying the User's Choice
 
 def display_user(choice)
-  case choice
-  when 'R' then prompt(MESSAGES['chose_rock'])
-  when 'P' then prompt(MESSAGES['chose_paper'])
-  when 'S' then prompt(MESSAGES['chose_scissors'])
-  when 'L' then prompt(MESSAGES['chose_lizard'])
-  when 'SP' then prompt(MESSAGES['chose_spock'])
+  case choice[1]
+  when 'p' then prompt(MESSAGES['chose_spock'])
+  else
+    
+    case choice[0]
+    when 'R' then prompt(MESSAGES['chose_rock'])
+    when 'P' then prompt(MESSAGES['chose_paper'])
+    when 'S' then prompt(MESSAGES['chose_scissors'])
+    when 'L' then prompt(MESSAGES['chose_lizard'])
+    end
+    
   end
-end
+end 
+
 
 # Getting the User's Choice
 
@@ -79,14 +84,14 @@ def display_comp(choice)
   when 'P' then prompt(MESSAGES['comp_paper'])
   when 'S' then prompt(MESSAGES['comp_scissors'])
   when 'L' then prompt(MESSAGES['comp_lizard'])
-  when 'SP' then prompt(MESSAGES['comp_spock'])
+  when 'Sp' then prompt(MESSAGES['comp_spock'])
   end
 end
 
 # Getting the Computer's Choice
 
 def get_computer_choice
-  choices_array = ['R', 'P', 'S', 'L', 'SP']
+  choices_array = ['R', 'P', 'S', 'L', 'Sp']
   computer_choice = choices_array.sample
 
   display_comp(computer_choice)
@@ -102,37 +107,42 @@ wins_losses_display_collection = {
   'P_vs_R' => MESSAGES['user_won_paper_vs_rock'],
   'S_vs_P' => MESSAGES['user_won_scissors_vs_paper'],
   'R_vs_L' => MESSAGES['user_won_rock_vs_lizard'],
-  'L_vs_SP' => MESSAGES['user_won_lizard_vs_spock'],
-  'SP_vs_S' => MESSAGES['user_won_spock_vs_scissors'],
+  'L_vs_Sp' => MESSAGES['user_won_lizard_vs_spock'],
+  'Sp_vs_S' => MESSAGES['user_won_spock_vs_scissors'],
   'S_vs_L' => MESSAGES['user_won_scissors_vs_lizard'],
   'L_vs_P' => MESSAGES['user_won_lizard_vs_paper'],
-  'P_vs_SP' => MESSAGES['user_won_paper_vs_spock'],
-  'SP_vs_R' => MESSAGES['user_won_spock_vs_rock'],
+  'P_vs_Sp' => MESSAGES['user_won_paper_vs_spock'],
+  'Sp_vs_R' => MESSAGES['user_won_spock_vs_rock'],
 
   # Computer Wins
   'R_vs_P' => MESSAGES['comp_won_rock_vs_paper'],
   'P_vs_S' => MESSAGES['comp_won_paper_vs_scissors'],
   'S_vs_R' => MESSAGES['comp_won_scissors_vs_rock'],
   'L_vs_R' => MESSAGES['comp_won_lizard_vs_rock'],
-  'SP_vs_L' => MESSAGES['comp_won_spock_vs_lizard'],
-  'S_vs_SP' => MESSAGES['comp_won_scissors_vs_spock'],
+  'Sp_vs_L' => MESSAGES['comp_won_spock_vs_lizard'],
+  'S_vs_Sp' => MESSAGES['comp_won_scissors_vs_spock'],
   'L_vs_S' => MESSAGES['comp_won_lizard_vs_scissors'],
   'P_vs_L' => MESSAGES['comp_won_paper_vs_lizard'],
-  'SP_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
-  'R_vs_SP' => MESSAGES['comp_won_rock_vs_spock'],
+  'Sp_vs_P' => MESSAGES['comp_won_spock_vs_paper'],
+  'R_vs_Sp' => MESSAGES['comp_won_rock_vs_spock'],
 
   # Tie Game
   'R_vs_R' => MESSAGES['tie'],
   'P_vs_P' => MESSAGES['tie'],
   'S_vs_S' => MESSAGES['tie'],
   'L_vs_L' => MESSAGES['tie'],
-  'SP_vs_SP' => MESSAGES['tie']
+  'Sp_vs_Sp' => MESSAGES['tie']
 }
 
 # Returning the value from the collection
 
 def return_result(hash, user_choice, computer_choice)
-  hash["#{user_choice}_vs_#{computer_choice}"]
+  if user_choice[1] == 'p'
+    hash["Sp_vs_#{computer_choice}"]
+  else 
+    hash["#{user_choice[0]}_vs_#{computer_choice}"]
+  end
+  
 end
 
 # Display Win or Loss to the User
