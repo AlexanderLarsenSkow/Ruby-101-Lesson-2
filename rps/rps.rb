@@ -231,7 +231,6 @@ loop do
   
   display_results(result)
 
-
   if result[1].include?('you')
     user_points += 1
   elsif result[1].include?('Rockbot')

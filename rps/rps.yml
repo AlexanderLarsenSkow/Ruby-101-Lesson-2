@@ -25,41 +25,24 @@ comp_lizard: "Rockbot_5000 chose Lizard."
 comp_spock: "Rockbot_5000 chose Spock."
 
 
-user_won_paper_vs_rock: "Paper covers Rock! That's a point for you."
-user_won_rock_vs_scissors: "Rock SMASH Scissors! That's a point for you."
+paper_beats_rock: "Paper covers Rock!" 
+rock_beats_scissors: "Rock SMASH Scissors!"
 
-user_won_scissors_vs_paper: "Scissors cuts Paper! That's a point for you."
-user_won_rock_vs_lizard: "Rock SMASH Lizard! That's a point for you."
+scissors_beats_paper: "Scissors cuts Paper!"
+rock_beats_lizard: "Rock SMASH Lizard!"
 
-user_won_lizard_vs_spock: "Lizard poisons Spock! That's a point for you."
-user_won_spock_vs_scissors: "Spock throws Scissors in the garbage! That's a point for you."
+lizard_beats_spock: "Lizard poisons Spock!"
+spock_beats_scissors: "Spock throws Scissors in the garbage!"
 
-user_won_scissors_vs_lizard: "Scissors decapitates Lizard! That's a point for you."
-user_won_lizard_vs_paper: "Lizard eats Paper! That's a point for you."
+scissors_beats_lizard: "Scissors decapitates Lizard!"
+lizard_beats_paper: "Lizard eats Paper!"
 
-user_won_paper_vs_spock: "Paper reasons with Spock. He can't handle the superior logic. That's a point for you."
-user_won_spock_vs_rock: "Spock vaporizes Rock! It's totally effective! That's a point for you."
+paper_beats_spock: "Paper reasons with Spock. He can't handle the superior logic."
+spock_beats_rock: "Spock vaporizes Rock! It's totally effective!"
 
-
-
-comp_won_rock_vs_paper: "Paper covers Rock! That's a point for Rockbot."
-comp_won_scissors_vs_rock: "Rock SMASH Scissors! That's a point for Rockbot."
-
-comp_won_paper_vs_scissors: "Scissors cuts Paper! That's a point for Rockbot."
-comp_won_lizard_vs_rock: "Rock SMASH Lizard! That's a point for Rockbot."
-
-comp_won_spock_vs_lizard: "Lizard poisons Spock! That's a point for Rockbot."
-comp_won_scissors_vs_spock: "Spock throws Scissors in the garbage! That's a point for Rockbot."
-
-comp_won_lizard_vs_scissors: "Scissors decapitates Lizard! That's a point for Rockbot."
-comp_won_paper_vs_lizard: "Lizard eats Paper! That's a point for Rockbot."
-
-comp_won_spock_vs_paper: "Paper reasons with Spock. He can't handle the superior logic. That's a point for Rockbot."
-comp_won_rock_vs_spock: "Spock vaporizes Rock! It's totally effective! That's a point for Rockbot."
-
-
+user_point: "That's a point for you."
+comp_point: "That's a point for Rockbot."
 tie: "Tied Point"
-
 
 win: "you won! Rockbot cries 1's and 0's."
 lose: 'you lost! Better luck next time :P'
