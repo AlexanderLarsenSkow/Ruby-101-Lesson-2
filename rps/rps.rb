@@ -55,6 +55,16 @@ def abbreviate(choices)
   choices_abbreviations
 end 
 
+# Clearing and slowing display output to the terminal 
+
+def clear
+  system "clear"
+end 
+
+def sleep_for(seconds)
+  sleep seconds
+end 
+
 # Validating user_input RENAME to choices_validation
 
 def input_validation(n, choices, choices_abr)
@@ -103,6 +113,9 @@ end
 # Getting the User's Choice
 
 def get_user_choice(choices, choices_abr)
+  sleep_for 3.5
+  clear
+  
   user_choice = ''
   loop do
     prompt(MESSAGES['user_choice'])
@@ -111,7 +124,9 @@ def get_user_choice(choices, choices_abr)
     break if input_validation(user_choice, choices, choices_abr)
     prompt(MESSAGES['user_choice_error'])
   end
+  
   display_user(user_choice)
+  sleep_for 0.6
   user_choice
 end
 
@@ -134,6 +149,7 @@ def get_computer_choice
   computer_choice = choices_array.sample
 
   display_comp(computer_choice)
+  sleep_for 0.6
   computer_choice
 end
 
@@ -171,9 +187,11 @@ end
 # Displaying values based on return value Class in find_winner
 
 def display_results(results_method)
-  
+    sleep_for 0.6
+    
     if results_method.is_a?(Array)
       prompt(results_method[0])
+      sleep_for 0.6 
       prompt(results_method[1])
     else 
       prompt(results_method)
@@ -183,6 +201,7 @@ end
 # Display Win or Loss to the User
 
 def display_win_loss(username, user_points, comp_points)
+  sleep_for 1
   prompt("#{username}, #{MESSAGES['win']}") if user_points == 3
   prompt("#{username}, #{MESSAGES['lose']}") if comp_points == 3
 end
@@ -194,6 +213,7 @@ def new_game?(_user_points, _comp_points)
   gets.chomp.upcase
 end
 
+clear
 # Let's Play
 
 username = get_username
