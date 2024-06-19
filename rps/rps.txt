@@ -65,8 +65,8 @@ Think about how to reintialize the points variables to 0 at the loop's restart.
 Things to do: 
 - DONE! Declare Constants at the top
 - DONE! Set up logic that allows the user to input the whole word, not just 'R' or 'L'
-- Refactor the hash collection so that first or last determines who wins.
-- System 'clear' and sleep for user experience
+- DONE! Refactor the hash collection so that first or last determines who wins.
+- DONE! System 'clear' and sleep for user experience
 - Write a rules display message.
 
 
