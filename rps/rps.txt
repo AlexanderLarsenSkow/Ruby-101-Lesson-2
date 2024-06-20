@@ -67,9 +67,22 @@ Things to do:
 - DONE! Set up logic that allows the user to input the whole word, not just 'R' or 'L'
 - DONE! Refactor the hash collection so that first or last determines who wins.
 - DONE! System 'clear' and sleep for user experience
-- Write a rules display message.
+- DONE! Write a rules display message.
+
+-Rewrite Rules so that it's multiple separate strings and you can sleep them.
+	I like the idea of asking the user if they want to read the rules or not.
+
 - Write a sleep method based on conditions. Sleeps for longer at the start of the program
 		and sleeps for shorter after a round and doesn't sleep at all for a replay.
+			"Maybe you should have read the rules..."
+		
+- Idea for feature where it iterates through collection of Rockbot strings.
+		-Rockbot jeers at you.
+		-Rockbot pumps his arms.
+		-Rockbot tastes the salt in your tears.
+		-Rockbot knows how to pick em.
+		-Rockbot won't forget this.
+		-Rockbot is preparing for your demise.
 
 Whole Word or Abbreviation Feature: DONE!
 input should work if it's the whole word capitalized or the whole word lower case.
