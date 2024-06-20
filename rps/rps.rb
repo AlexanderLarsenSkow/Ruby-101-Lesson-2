@@ -2,7 +2,6 @@ require 'yaml'
 MESSAGES = YAML.load_file('rps.yml')
 
 # Constants
-
 # Choices for the game 
 
 CHOICES = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
@@ -77,12 +76,16 @@ def prompt(string)
   puts "<< #{string}"
 end
 
+def display_intro
+  prompt(MESSAGES['welcome'])
+  prompt(MESSAGES['rules'])
+end
+
 # Getting Username
 
 def get_username
   username = ''
   loop do
-    prompt(MESSAGES['welcome'])
     prompt(MESSAGES['name'])
     username = gets.chomp.capitalize
 
@@ -223,6 +226,7 @@ end
 
 # Let's Play
 
+display_intro
 username = get_username
 user_points = 0
 comp_points = 0

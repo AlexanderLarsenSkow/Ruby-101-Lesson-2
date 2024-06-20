@@ -1,6 +1,22 @@
-welcome: 'This is Rock, Paper, Scissors. Test your luck against the worthiest in Paperdom.'
+welcome: 'This is Rock, Paper, Scissors, Lizard, Spock. Test your luck against the worthiest in Paperdom.'
 
-name: 'But first, worthy challenger, what is thy name?'
+rules: "The rules are the same as Rock, Paper, Scissors, with some key differences.\n
+\n 
+In this game, you can use two new moves: Spock and Lizard.\n
+\n 
+|Spock beats Rock and Scissors| |Lizard beats Paper and Spock|\n 
+\n
+|Rock beats Lizard and Scissors| |Scissors beats Lizard and Paper|\n 
+\n
+|Paper beats Rock and Spock|\n
+\n 
+The first combatant to win 3 times shall win the games.\n
+"
+                         
+                         
+             
+
+name: "Now, what is your name, worthy challenger?"
 
 username_error: "Give us a name, challenger, so we may sing the songs of your battle prowess or laugh at your defeat."
 

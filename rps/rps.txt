@@ -68,7 +68,8 @@ Things to do:
 - DONE! Refactor the hash collection so that first or last determines who wins.
 - DONE! System 'clear' and sleep for user experience
 - Write a rules display message.
-
+- Write a sleep method based on conditions. Sleeps for longer at the start of the program
+		and sleeps for shorter after a round and doesn't sleep at all for a replay.
 
 Whole Word or Abbreviation Feature: DONE!
 input should work if it's the whole word capitalized or the whole word lower case.
